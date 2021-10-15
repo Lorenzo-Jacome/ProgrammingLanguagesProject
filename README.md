@@ -1,7 +1,7 @@
 # PROJECT TITLE
 ## Members
 * Lorenzo Jácome - A01026759
-* Miguel Hernández - 
+* Miguel Hernández - A01022398
 ## Description
 
 ## Details
