@@ -1,4 +1,4 @@
-# PICTURE ENCRYPTION PROJECT
+# Encrypted Members
 ## Members
 * Lorenzo Jácome - A01026759
 * Miguel Hernández - A01022398
