@@ -34,6 +34,10 @@ Lately cyberattacks have focused on the theft of biometric data information, the
 2. The user inserts the key
 3. The user selects where does he want to store its decrypted file
 4. The user gets prompted with the location of the file
+
+![ExampleA](https://github.com/Lorenzo-Jacome/ProgrammingLanguagesProject/blob/main/Images/image1.jpeg)
+![ExampleB](https://github.com/Lorenzo-Jacome/ProgrammingLanguagesProject/blob/main/Images/image2.jpeg)
+
 ### References
 1. http://profesores.elo.utfsm.cl/~agv/elo329/1s04/projects/C_Mellings.L_Baez/Documentacion.htm
 2. https://www.redalyc.org/pdf/4988/498853957007.pdf
