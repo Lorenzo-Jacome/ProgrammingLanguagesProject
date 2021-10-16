@@ -15,6 +15,10 @@ Being students of the Tecnológico de Monterrey campus Santa Fe we care about th
 
 Lately cyberattacks have focused on the theft of biometric data information, therefore in our project it has the objective of being able to be used to encrypt all the photos with which the campus facial recognition system operates in order to reinforce data security.
 
+## Topics for the Project
+1. Lists
+2. File I/O
+3. Ecrytpion
 
 ## Details
 **Language:** The project will ve developed using [Elixir](https://elixir-lang.org/)
@@ -31,3 +35,7 @@ Lately cyberattacks have focused on the theft of biometric data information, the
 3. The user selects where does he want to store its decrypted file
 4. The user gets prompted with the location of the file
 ### References
+1. http://profesores.elo.utfsm.cl/~agv/elo329/1s04/projects/C_Mellings.L_Baez/Documentacion.htm
+2. https://www.redalyc.org/pdf/4988/498853957007.pdf
+3. https://elixir-lang.org/getting-started/erlang-libraries.html#the-crypto-module
+
