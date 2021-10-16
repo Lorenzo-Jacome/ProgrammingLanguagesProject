@@ -38,4 +38,5 @@ Lately cyberattacks have focused on the theft of biometric data information, the
 1. http://profesores.elo.utfsm.cl/~agv/elo329/1s04/projects/C_Mellings.L_Baez/Documentacion.htm
 2. https://www.redalyc.org/pdf/4988/498853957007.pdf
 3. https://elixir-lang.org/getting-started/erlang-libraries.html#the-crypto-module
+4. https://github.com/elixir-mogrify/mogrify
 
