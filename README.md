@@ -7,6 +7,15 @@ The purpose of this project is to develop a set of modules and functions targete
 Nowdays, maintaining your data private is becoming more of a challenge and it's hard to define wether certain information sharing platforms are actually keeping our infomration private and outside the access of other people. That is why the purpose of this project is to guarantee that, whenever you have the need to send delicate information or just wanting to keep your pictures private, you have access to an easy to use tool that ensures your selected pictures get encrypted and ready to send, rendering this pictures useless for anyone who should not have access to them. To achieve this, the users of this programm will have access to functions that:
 1. Encrypt a selected picture and returns the encrypted file, ready to be sent. 
 2. Decrypt a file you have, given that you have the key. 
+
+## Objective
+The project has multiple applications, but specifically, it is designed to encrypt the images of a facial recognition system.
+
+Being students of the Tecnológico de Monterrey campus Santa Fe we care about the community, therefore, we take as a reference the new implementation of the facial recognition system to be able to enter and leave the campus.
+
+Lately cyberattacks have focused on the theft of biometric data information, therefore in our project it has the objective of being able to be used to encrypt all the photos with which the campus facial recognition system operates in order to reinforce data security.
+
+
 ## Details
 **Language:** The project will ve developed using [Elixir](https://elixir-lang.org/)
 ### Functionality and behaviour
