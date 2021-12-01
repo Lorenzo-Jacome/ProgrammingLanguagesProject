@@ -7,6 +7,10 @@
 
 
 defmodule Feistel do
+  #TODO: Leer imagen bmp
+  #TODO: Convertir cada byte en bits
+  #TODO: Aplicar Feistel a los bits
+  #TODO: Regresar bits a bytes y regresar a imagen
 
   def reverse(list), do: do_reverse(list, [])
     defp do_reverse([], listreturn),
