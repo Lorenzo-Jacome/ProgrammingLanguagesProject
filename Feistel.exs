@@ -183,23 +183,4 @@ defmodule Feistel do
       Enum.split(list, len)
     end
 
-    #Contatenates two lists
-    def concat(list1, list2) do
-      list1 ++ list2
-    end
-
-    #Turns a decimal value to its binary value
-    def decimal_to_binary(str) when is_binary(str) do
-      str
-      |> String.to_integer()
-      |> decimal_to_binary()
-    end
-    def decimal_to_binary(num) when is_integer(num) do
-      binary_string = :erlang.integer_to_binary(num, 2)
-      binary_string_length = String.length(binary_string)
-      desired_string_length = binary_string_length + (8 - rem(binary_string_length, 8))
-      String.pad_leading(binary_string, desired_string_length, "0")
-    end
-
-
   end
