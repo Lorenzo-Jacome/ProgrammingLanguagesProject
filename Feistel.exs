@@ -1,7 +1,7 @@
 #Final-Project
 #
 #Miguel Hernández A01022398
-#Lorenzo Jacome A0102
+#Lorenzo Jacome A01026759
 #
 #Feistel Algorithm
 
@@ -26,7 +26,7 @@ defmodule Feistel do
   #Funcion que toma seccion de header de bmp (count = 0)
   def generateHeader(list, count, resultHeader) do
     if count < 54 do
-      generateByteList(list, count + 1, resultHeader ++ [(Enum.at(list, count))])
+      generateHeader(list, count + 1, resultHeader ++ [(Enum.at(list, count))])
     else
       resultHeader
     end
@@ -52,9 +52,9 @@ defmodule Feistel do
   def xor(leftSide, e, newList) do
     if Enum.count(leftSide) != 0 do
       if hd(leftSide) != hd(e) do
-        newList ++ [1]
+        xor(tl(leftSide), tl(e), newList ++ [1])
       else
-        newList ++ [0]
+        xor(tl(leftSide), tl(e), newList ++ [0])
       end
     else
       newList
@@ -65,6 +65,7 @@ defmodule Feistel do
   def feistelRound(matBits) do
     twoSides = split(matBits)
     leftSide = List.flatten(elem(twoSides, 0))
+
     rightSide = List.flatten(elem(twoSides, 1))
 
     e = reverse(rightSide)
@@ -84,11 +85,67 @@ defmodule Feistel do
     newRight2 = xor(leftSide2, newE, [])
 
     result = newLeft2 ++ newRight2
-    result
+
+    twoSides3 = split(result)
+    leftSide3 = elem(twoSides3, 0)
+    rightSide3 = elem(twoSides3, 1)
+
+    newE2 = reverse(rightSide3)
+
+    newLeft3 = rightSide3
+    newRight3 = xor(leftSide3, newE2, [])
+
+    finalResult = newLeft3 ++ newRight3
+    finalResult
+
 
   end
 
-  #TODO: Regresar bits a bytes y regresar a imagen
+  #Regresa lista de cada bit (sin header)
+  def feistelBits(fileName) do
+    header = generateHeader(readImage(fileName), 0, [])
+
+    normalList = readImage(fileName)
+    byteList = generateByteList(normalList, 54, [])
+    binMat = bytesToBits(byteList, [])
+    bitMat = addRemainingBits(binMat)
+    x = feistelRound(bitMat)
+    bitsGroup = separateBits(x)
+    final = header ++ bitsToBytes(bitsGroup, [])
+    final
+
+    #generateHeader(readImage(fileName), 0, []) ++ bitsToBytes(bitsGroup, [])
+  end
+
+  #Recives a list of 8 bits and returns a decimal (counter must be 7 at start and result 0)
+  def bitsToDec(listOfBits, count, resultDec) do
+    if count >= 0 do
+      bitsToDec(tl(listOfBits), count - 1, resultDec + (hd(listOfBits) * :math.pow(2,count) |> round))
+    else
+      resultDec
+    end
+  end
+
+  #Dividir lista de bits en grupos de 8 y general lista de bytes
+  def separateBits(listOfBits) do
+    Enum.chunk_every(listOfBits, 8)
+  end
+
+  def bitsToBytes(separatedList, newList) do
+    if Enum.count(separatedList) != 0 do
+      bitsToBytes(tl(separatedList), newList ++ [bitsToDec(hd(separatedList), 7, 0)])
+    else
+      newList
+    end
+  end
+
+  def feistelEncrypt(fileName) do
+    binaryList = feistelBits(fileName)
+    bitsGroup = separateBits(binaryList)
+    generateHeader(readImage(fileName), 0, []) ++ bitsToBytes(bitsGroup, [])
+  end
+
+  #-----------------------------------------------------------------------------------------------------------
 
   def reverse(list), do: do_reverse(list, [])
     defp do_reverse([], listreturn),
