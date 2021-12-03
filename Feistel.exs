@@ -113,7 +113,7 @@ defmodule Feistel do
   #Recieves the file name(.bmp) and encrypts it using Feistel
   #It generates an image in the same directory where the programm is running
   #with the encrypted picture
-  def feistelBits(fileName) do
+  def feistelEncrypt(fileName) do
     header = generateHeader(readImage(fileName), 0, [])
 
     normalList = readImage(fileName)
@@ -124,6 +124,20 @@ defmodule Feistel do
     bitsGroup = separateBits(x)
     final = header ++ bitsToBytes(bitsGroup, [])
     File.write("encrypt.bmp", final)
+  end
+
+  #Recives an encrypted bmp image and returns it to its original value
+  def feistelDecrypt(fileName) do
+    header = generateHeader(readImage(fileName), 0, [])
+
+    normalList = readImage(fileName)
+    byteList = generateByteList(normalList, 54, [])
+    binMat = bytesToBits(byteList, [])
+    bitMat = addRemainingBits(binMat)
+    x = feistelRound(bitMat)
+    bitsGroup = separateBits(x)
+    final = header ++ bitsToBytes(bitsGroup, [])
+    File.write("decrypt.bmp", final)
   end
 
   #Recives a list of 8 bits and returns a decimal (counter must be 7 at start and result 0)
