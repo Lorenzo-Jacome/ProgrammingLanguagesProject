@@ -43,3 +43,5 @@ The programm expects to recieve an image in an .bmp format. It will be processed
 3. https://elixir-lang.org/getting-started/erlang-libraries.html#the-crypto-module
 4. https://github.com/elixir-mogrify/mogrify
 
+##Final presentation
+* [Final Presentation Video](https://drive.google.com/file/d/1w5GoH2w5h1uwpFDslzIHc-kI8VYPl1Qw/view?usp=sharing)
